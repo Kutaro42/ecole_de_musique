@@ -71,17 +71,18 @@ Le serveur web est en plus configuré pour qu'un projet symfony soit hébergé d
 La ligne de commande symfony (plus d'infos : https://symfony.com/download) est incluse dans le container `iut-php`
 
 Initialiser le projet revient donc à faire un :  
-`docker exec -it iut-php symfony new --full --no-git projet`  
+`docker exec -it iut-php symfony new --full --version=6.1 --no-git projet`  
 On utilise `--full` pour avoir une appli web complète, et `--no-git` parce que nous allons nous occuper par ailleurs 
-de la problématique de versionning.
+de la problématique de versionning.  
+le `projet` comme dernier argument de l'appel est le nom du répertoire dans lequel on veut créer notre projet. Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
 
 Composition de la stack
 -----------------------
 
 La stack comporte 3 containers :
-- PHP (8.0.10, avec XDebug)
-- Apache (2.4.48)
-- MariaDB (10.6.4)
+- PHP (8.1.10, avec XDebug)
+- Apache (2.4.54)
+- MariaDB (10.9.2)
 
 Utiliser XDebug
 ---------------

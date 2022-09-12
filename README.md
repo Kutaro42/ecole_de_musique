@@ -73,7 +73,8 @@ La ligne de commande symfony (plus d'infos : https://symfony.com/download) est i
 Initialiser le projet revient donc à faire un :  
 `docker exec -it iut-php symfony new --full --no-git projet`  
 On utilise `--full` pour avoir une appli web complète, et `--no-git` parce que nous allons nous occuper par ailleurs 
-de la problématique de versionning.
+de la problématique de versionning.  
+le `projet` comme dernier argument de l'appel est le nom du répertoire dans lequel on veut créer notre projet. Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
 
 Composition de la stack
 -----------------------

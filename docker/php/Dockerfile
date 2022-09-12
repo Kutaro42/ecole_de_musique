@@ -16,5 +16,6 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
 # Installer la CLI Symfony
-# RUN curl -sS https://get.symfony.com/cli/installer | bash
-# RUN  mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+RUN apk add --no-cache bash
+RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash
+RUN apk add symfony-cli

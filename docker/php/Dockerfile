@@ -1,4 +1,4 @@
-FROM php:8.0.13-fpm-alpine3.14
+FROM php:8.1.10-fpm-alpine3.16
 
 # Installer XDebug
 COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini

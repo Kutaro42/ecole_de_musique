@@ -79,9 +79,9 @@ Composition de la stack
 -----------------------
 
 La stack comporte 3 containers :
-- PHP (8.0.10, avec XDebug)
-- Apache (2.4.48)
-- MariaDB (10.6.4)
+- PHP (8.1.10, avec XDebug)
+- Apache (2.4.54)
+- MariaDB (10.9.2)
 
 Utiliser XDebug
 ---------------

@@ -25,7 +25,7 @@ Démarrage rapide
 ----------------
 
 On récupère une archive zip du contenu de la branche main, à l'adresse  
-https://forge.iut-larochelle.fr/2021-cpo3-pws3/stack/-/archive/main/stack-main.zip  
+https://forge.iut-larochelle.fr/qual3/stack-php/-/archive/main/stack-php-main.zip  
 et on se positionne dans le dossier en question.
 
 Dans un terminal :  

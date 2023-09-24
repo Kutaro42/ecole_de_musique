@@ -1,6 +1,7 @@
 FROM php:8.1.10-fpm-alpine3.16
 
 # Installer XDebug
+RUN apk add linux-headers
 COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN apk add bash git $PHPIZE_DEPS
 RUN pecl install xdebug

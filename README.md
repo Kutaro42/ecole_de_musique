@@ -70,11 +70,24 @@ Démarrer un projet Symfony
 Le serveur web est en plus configuré pour qu'un projet symfony soit hébergé dans le répertoire `/projet`  
 La ligne de commande symfony (plus d'infos : https://symfony.com/download) est incluse dans le container `iut-php`
 
-Initialiser le projet revient donc à faire un :  
-`docker exec -it iut-php symfony new --full --version=6.1 --no-git projet`  
-On utilise `--full` pour avoir une appli web complète, et `--no-git` parce que nous allons nous occuper par ailleurs 
-de la problématique de versionning.  
-le `projet` comme dernier argument de l'appel est le nom du répertoire dans lequel on veut créer notre projet. Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
+Pour initialiser le projet, le générateur décrit ci-dessous nécessire que l'on configure git, exécutez les deux commandes suivantes, n'oubliez pas de les personnaliser : 
+
+```bash
+docker exec -it iut-php git config --global user.email 'votre@email.org'
+docker exec -it iut-php git config --global user.name 'Votre Nom'
+```
+
+Initialiser le projet revient ensuite à faire un :  
+`docker exec -it iut-php symfony new projet --version="6.3.*" --webapp`  
+
+On utilise `--webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
+
+Nettoyage post-installation 
+---------------------------
+
+Etant donné que nous allons nous occuper par ailleurs de la problématique de versionning, supprimez le dossier `projet/.git`. 
+Supprimez également les fichierS `projet/docker-compose.yml` et `projet/docker-compose.override.yml` qui ne nous serons pas utile. 
+
 
 Composition de la stack
 -----------------------

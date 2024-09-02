@@ -6,19 +6,18 @@ Prérequis
 
 Sur votre machine Mac, Windows ou Linux :
 
-- Docker 20.10 au moins
-- (Docker) Compose 1.29 au moins  
-  (Installer Docker Desktop 3.5 satisfait ces deux pré-requis)
+- Docker 27.0 au moins
+  (Installer Docker Desktop 4.34 satisfait ces deux pré-requis)
 - Un éditeur de texte ou un IDE
 - L'accès à un terminal
 
 De manière optionnelle, mais fortement recommandée :
 
 - Une [clé SSH](https://forge.iut-larochelle.fr/help/ssh/index#generate-an-ssh-key-pair) active sur votre machine
-  (perso) et [ajoutée dans votre compte gitlab](https://forge.iut-larochelle.fr/help/ssh/index#add-an-ssh-key-to-your-gitlab-account) :  
+  (si c'est une machine perso) et [ajoutée dans votre compte gitlab](https://forge.iut-larochelle.fr/help/ssh/index#add-an-ssh-key-to-your-gitlab-account) :  
   elle vous permettra de ne pas taper votre mot de passe en permanence.
 - PHPStorm  
-  _Votre email étudiant vous permet de bénéficier d'une licence complète de 12 mois pour tous les produits JetBrains_  
+  _Votre email étudiant vous permet de bénéficier d'une licence complète de 12 mois pour tous les produits JetBrains_ : https://www.jetbrains.com/shop/eform/students  
   ...Mais vous pouvez bien sûr utiliser l'IDE de votre choix
 
 Démarrage rapide

@@ -1,4 +1,4 @@
-FROM php:8.1.10-fpm-alpine3.16
+FROM php:8.3.11-fpm-alpine3.20
 
 # Installer XDebug
 RUN apk add linux-headers

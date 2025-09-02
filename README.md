@@ -97,7 +97,7 @@ La stack comporte 3 containers :
 - PHP (8.3.11, avec XDebug)
 - Apache (2.4.62) : http://localhost:8888 (pour votre future install de Symfony) et http://localhost:8887 (pour faire des tests avec PHP)
 - MariaDB (11.5)
-- PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`)
+- PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`, deux bases disponibles : `iut_symfony` et `iut_sandbox`)
 
 Utiliser XDebug
 ---------------

@@ -79,9 +79,10 @@ docker exec -it iut-php git config --global user.name 'Votre Nom'
 ```
 
 Initialiser le projet revient ensuite à faire un :  
-`docker exec -it iut-php symfony new projet --version="6.3.*" --webapp`  
+`docker exec -it iut-php symfony new projet --version="6.4.*" --webapp`  
 
-On utilise `--webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
+On utilise `--webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. 
+Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
 
 Nettoyage post-installation 
 ---------------------------

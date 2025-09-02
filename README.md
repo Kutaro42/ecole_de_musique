@@ -53,7 +53,9 @@ _Port_ : 3307 (plutôt que 3306 pour éviter un conflit si MySQL tourne déjà s
 
 Mot de passe root : `iut`.  
 Par ailleurs, un utilisateur "standard" nommé `iut` a les droits d'accès sur une base de données nommée `iut`
-avec le mot de passe `iut`
+avec le mot de passe `iut`.
+
+Un second schéma de base de données nommé `iut_sandbox` est automatiquement créé au premier démarrage du container de base de données, avec les mêmes droits pour l'utilisateur `iut`.
 
 Le serveur web
 --------------
@@ -92,9 +94,10 @@ Composition de la stack
 -----------------------
 
 La stack comporte 3 containers :
-- PHP (8.1.10, avec XDebug)
-- Apache (2.4.54)
-- MariaDB (10.9.2)
+- PHP (8.3.11, avec XDebug)
+- Apache (2.4.62) : http://localhost:8888 (pour votre future install de Symfony) et http://localhost:8887 (pour faire des tests avec PHP)
+- MariaDB (11.5)
+- PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`)
 
 Utiliser XDebug
 ---------------

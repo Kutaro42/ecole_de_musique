@@ -18,6 +18,16 @@ services:
       - "8887:81"
     volumes:
       - "./:/var/www/html/"
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: iut-pma
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8886:80"
+    depends_on:
+      - db
   db:
     build:
       context: .
@@ -26,7 +36,8 @@ services:
     ports:
       - "3307:3306" # mysql
     environment:
-      MYSQL_DATABASE: iut
+      MYSQL_DATABASE: iut_symfony
       MYSQL_USER: iut
       MYSQL_PASSWORD: iut
       MYSQL_ROOT_PASSWORD: iut
+

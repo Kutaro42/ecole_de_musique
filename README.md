@@ -40,6 +40,8 @@ Un shell interactif php est disponible en faisant :
 `docker exec -it iut-php php -a`  
 (plus d'infos ici : https://www.php.net/manual/fr/features.commandline.interactive.php)
 
+Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
+
 Utiliser la base de données
 -----------------------------
 

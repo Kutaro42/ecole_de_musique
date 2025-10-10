@@ -29,6 +29,9 @@ RUN docker-php-ext-enable xdebug
 
 # Modules pour utiliser MySQL
 RUN docker-php-ext-install mysqli pdo_mysql
+# Intl
+RUN apk add icu-dev icu-data-full
+RUN docker-php-ext-install intl
 
 # Installer composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"

@@ -1,4 +1,4 @@
-FROM php:8.3.11-fpm-alpine3.20
+FROM php:8.5.10-fpm-alpine3.23
 
 # A priori, on est déjà root, mais soyons sûrs
 USER root
@@ -20,12 +20,7 @@ RUN if [ -n "${USER_NAME}" ] && [ -n "${GROUP_NAME}" ] && [ "${USER_ID:-0}" -ne 
     chown -R "${USER_NAME}:${GROUP_NAME}" /app; \
   fi
 
-# Installer XDebug
-RUN apk add linux-headers
-COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN apk add bash git $PHPIZE_DEPS
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+RUN apk add bash git
 
 # Modules pour utiliser MySQL
 RUN docker-php-ext-install mysqli pdo_mysql

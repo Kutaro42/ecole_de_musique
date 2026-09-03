@@ -6,8 +6,8 @@ Prérequis
 
 Sur votre machine Mac, Windows ou Linux :
 
-- Docker 27.0 au moins
-  (Installer Docker Desktop 4.34 satisfait ces deux pré-requis)
+- Docker 29.7 au moins, ou un moyen de faire tourner des containers et une stack docker compose
+  (Installer Docker Desktop 4.87 satisfait ce pré-requis - vous chercherez plus tard comment faire autrement)
 - Un éditeur de texte ou un IDE
 - L'accès à un terminal
 
@@ -18,7 +18,7 @@ De manière optionnelle, mais fortement recommandée :
   elle vous permettra de ne pas taper votre mot de passe en permanence.
 - PHPStorm  
   _Votre email étudiant vous permet de bénéficier d'une licence complète de 12 mois pour tous les produits JetBrains_ : https://www.jetbrains.com/shop/eform/students  
-  ...Mais vous pouvez bien sûr utiliser l'IDE de votre choix
+  ... Mais vous pouvez bien sûr utiliser l'IDE de votre choix (... tant que c'est PHPStorm ;-) 
 
 Démarrage rapide
 ----------------
@@ -41,6 +41,9 @@ Un shell interactif php est disponible en faisant :
 (plus d'infos ici : https://www.php.net/manual/fr/features.commandline.interactive.php)
 
 Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
+
+**Si vous installez une 2e fois la stack sur une machine**, vous allez avoir des conflits de noms de containers :
+la variable CONTAINER_PREFIX dans .env.dist, à enregistrer en .env est là pour ça.
 
 Utiliser la base de données
 -----------------------------
@@ -65,7 +68,7 @@ Le serveur web
 Les fichiers du répertoire `/sandbox` sont servis sur le port 8887  
 Initialement, dans le répertoire `/sandbox` sont présents deux fichiers, qui vous permettent de valider que tout fonctionne bien :  
 http://localhost:8887 (sert `/sandbox/index.php`), affiche le présent README  
-http://localhost:8887/phpinfo.php  (sert `sandbox/phpinfo.php`), affiche les détails de la configuration PHP et XDebug
+http://localhost:8887/phpinfo.php  (sert `sandbox/phpinfo.php`), affiche les détails de la configuration PHP
 
 Démarrer un projet Symfony
 --------------------------
@@ -80,15 +83,17 @@ docker exec -it iut-php git config --global user.email 'votre@email.org'
 docker exec -it iut-php git config --global user.name 'Votre Nom'
 ```
 
-Initialiser le projet revient ensuite à faire un :  
+Initialiser le projet revient ensuite à faire (dans le container) :  
 ```
-composer create-project symfony/skeleton:"7.3.x" projet
+composer create-project symfony/skeleton:"8.1.x" projet
 cd projet
 composer require webapp
 ```
 
 **Attention :** On utilise `webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. 
 Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
+
+A un moment, l'install va vous demander si vous souhaitez modifier la stack docker : vous ne le souhaitez PAS.
 
 Nettoyage post-installation 
 ---------------------------
@@ -101,26 +106,8 @@ Composition de la stack
 -----------------------
 
 La stack comporte 3 containers :
-- PHP (8.3.11, avec XDebug)
+- PHP (8.5.10)
 - Apache (2.4.62) : http://localhost:8888 (pour votre future install de Symfony) et http://localhost:8887 (pour faire des tests avec PHP)
-- MariaDB (11.5)
+- MariaDB (12.3)
 - PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`, deux bases disponibles : `iut_symfony` et `iut_sandbox`)
-
-Utiliser XDebug
----------------
-XDebug est un debugger qui permet de disposer d'informations complètes lors de l'exécution d'un script PHP
-et aussi de faire de l'execution pas à pas en utilisant des breakpoints.
-
-Pour utiliser XDebug, il faut l'activer, puis disposer d'un client, typiquement un IDE
-
-**En ligne de commande**  
-- On active [XDebug](https://xdebug.org/) en exposant une variable d'environnement :
-`docker exec -e XDEBUG_SESSION=1 -it iut-php php index.php`
-
-**En mode web**
-Le plus simple est d'utiliser une extension du navigateur qui active un cookie : 
-cherchez "XDebug Helper" pour Firefox ou Chrome
-
-Une fois activé, paramétrez votre IDE pour qu'il écoute XDebug, et lancez votre script CLI ou chargez la page dans 
-un navigateur.
 

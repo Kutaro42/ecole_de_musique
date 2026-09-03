@@ -1,4 +1,4 @@
-FROM mariadb:11.5
+FROM mariadb:12.3
 
 VOLUME /var/lib/mysql
 

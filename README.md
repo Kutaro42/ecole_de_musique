@@ -74,9 +74,9 @@ Démarrer un projet Symfony
 --------------------------
 
 Le serveur web est en plus configuré pour qu'un projet symfony soit hébergé dans le répertoire `/projet`  
-La ligne de commande symfony (plus d'infos : https://symfony.com/download) est incluse dans le container `iut-php`
+La ligne de commande Symfony (plus d'infos : https://symfony.com/download) est incluse dans le container `iut-php`
 
-Pour initialiser le projet, le générateur décrit ci-dessous nécessire que l'on configure git, exécutez les deux commandes suivantes, n'oubliez pas de les personnaliser : 
+Pour initialiser le projet, le générateur décrit ci-dessous nécessaire que l'on configure git, exécutez les deux commandes suivantes, n'oubliez pas de les personnaliser : 
 
 ```bash
 docker exec -it iut-php git config --global user.email 'votre@email.org'
@@ -98,8 +98,8 @@ A un moment, l'install va vous demander si vous souhaitez modifier la stack dock
 Nettoyage post-installation 
 ---------------------------
 
-Etant donné que nous allons nous occuper par ailleurs de la problématique de versionning, supprimez le dossier `projet/.git`. 
-Supprimez également les fichierS `projet/docker-compose.yml` et `projet/docker-compose.override.yml` qui ne nous serons pas utile. 
+Étant donné que nous allons nous occuper par ailleurs de la problématique de versioning, supprimez le dossier `projet/.git`. 
+Supprimez également les fichiers `projet/docker-compose.yml` et `projet/docker-compose.override.yml` qui ne nous seront pas utile. 
 
 
 Composition de la stack

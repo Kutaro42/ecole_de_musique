@@ -45,6 +45,17 @@ Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
 **Si vous installez une 2e fois la stack sur une machine**, vous allez avoir des conflits de noms de containers :
 la variable CONTAINER_PREFIX dans .env.dist, à enregistrer en .env est là pour ça.
 
+Installation des dépendance php 
+----------------
+Ouvrir un shell interactif
+`docker exec -it iut-php bash`
+
+Se déplacer dans le répertoire projet 
+`cd /var/www/html/projet`
+
+Installer les dépendances
+`composer install`
+
 Utiliser la base de données
 -----------------------------
 

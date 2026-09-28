@@ -62,14 +62,6 @@ avec le mot de passe `iut`.
 
 Un second schéma de base de données nommé `iut_ ` est automatiquement créé au premier démarrage du container de base de données, avec les mêmes droits pour l'utilisateur `iut`.
 
-Le serveur web
---------------
-
-Les fichiers du répertoire `/ ` sont servis sur le port 8887  
-Initialement, dans le répertoire `/ ` sont présents deux fichiers, qui vous permettent de valider que tout fonctionne bien :  
-http://localhost:8887 (sert `/ /index.php`), affiche le présent README  
-http://localhost:8887/phpinfo.php  (sert ` /phpinfo.php`), affiche les détails de la configuration PHP
-
 Démarrer un projet Symfony
 --------------------------
 
@@ -78,10 +70,6 @@ La ligne de commande Symfony (plus d'infos : https://symfony.com/download) est i
 
 Pour initialiser le projet, le générateur décrit ci-dessous nécessaire que l'on configure git, exécutez les deux commandes suivantes, n'oubliez pas de les personnaliser : 
 
-```bash
-docker exec -it iut-php git config --global user.email 'votre@email.org'
-docker exec -it iut-php git config --global user.name 'Votre Nom'
-```
 
 Initialiser le projet revient ensuite à faire (dans le container) :  
 ```
@@ -111,3 +99,15 @@ La stack comporte 3 containers :
 - MariaDB (12.3)
 - PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`, deux bases disponibles : `iut_symfony`)
 
+Règles de nommage du dépôt
+--------------------------
+Préfixer le message de commit par l'un des identificateur suivant
+- << conflict >> : Conflit de merge
+- << feature >>  : ajout d'une fonctionnalité
+- << modify >>   : Modification d'une méthode ou d'un fonctionnement spécifique
+- << merge >>    : merge d'une branche avec une autre
+- << fix >>      : Résolution d'un défaut/d'un bug ou d'un dysfonctionnement spécifique
+
+Commentaire explicité clairement EN FRANÇAIS.
+
+Comportement de push.

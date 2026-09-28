@@ -60,15 +60,15 @@ Mot de passe root : `iut`.
 Par ailleurs, un utilisateur "standard" nommé `iut` a les droits d'accès sur une base de données nommée `iut`
 avec le mot de passe `iut`.
 
-Un second schéma de base de données nommé `iut_sandbox` est automatiquement créé au premier démarrage du container de base de données, avec les mêmes droits pour l'utilisateur `iut`.
+Un second schéma de base de données nommé `iut_ ` est automatiquement créé au premier démarrage du container de base de données, avec les mêmes droits pour l'utilisateur `iut`.
 
 Le serveur web
 --------------
 
-Les fichiers du répertoire `/sandbox` sont servis sur le port 8887  
-Initialement, dans le répertoire `/sandbox` sont présents deux fichiers, qui vous permettent de valider que tout fonctionne bien :  
-http://localhost:8887 (sert `/sandbox/index.php`), affiche le présent README  
-http://localhost:8887/phpinfo.php  (sert `sandbox/phpinfo.php`), affiche les détails de la configuration PHP
+Les fichiers du répertoire `/ ` sont servis sur le port 8887  
+Initialement, dans le répertoire `/ ` sont présents deux fichiers, qui vous permettent de valider que tout fonctionne bien :  
+http://localhost:8887 (sert `/ /index.php`), affiche le présent README  
+http://localhost:8887/phpinfo.php  (sert ` /phpinfo.php`), affiche les détails de la configuration PHP
 
 Démarrer un projet Symfony
 --------------------------
@@ -109,5 +109,5 @@ La stack comporte 3 containers :
 - PHP (8.5.10)
 - Apache (2.4.62) : http://localhost:8888 (pour votre future install de Symfony) et http://localhost:8887 (pour faire des tests avec PHP)
 - MariaDB (12.3)
-- PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`, deux bases disponibles : `iut_symfony` et `iut_sandbox`)
+- PHPMyAdmin (5.2.2) : http://localhost:8886 (utilisateur : `iut`, mot de passe : `iut`, deux bases disponibles : `iut_symfony`)
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ELEVERepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ELEVERepository::class)]
@@ -45,6 +47,17 @@ class ELEVE
 
     #[ORM\Column]
     private ?bool $eleve_majeur = null;
+
+    /**
+     * @var Collection<int, INSCRIPTION>
+     */
+    #[ORM\OneToMany(targetEntity: INSCRIPTION::class, mappedBy: 'id_eleve')]
+    private Collection $id_inscription;
+
+    public function __construct()
+    {
+        $this->id_inscription = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -179,6 +192,36 @@ class ELEVE
     public function setEleveMajeur(bool $eleve_majeur): static
     {
         $this->eleve_majeur = $eleve_majeur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, INSCRIPTION>
+     */
+    public function getIdInscription(): Collection
+    {
+        return $this->id_inscription;
+    }
+
+    public function addIdInscription(INSCRIPTION $idInscription): static
+    {
+        if (!$this->id_inscription->contains($idInscription)) {
+            $this->id_inscription->add($idInscription);
+            $idInscription->setIdEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdInscription(INSCRIPTION $idInscription): static
+    {
+        if ($this->id_inscription->removeElement($idInscription)) {
+            // set the owning side to null (unless already changed)
+            if ($idInscription->getIdEleve() === $this) {
+                $idInscription->setIdEleve(null);
+            }
+        }
 
         return $this;
     }

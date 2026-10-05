@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Accueil - Ecole Mille et une notes{% endblock %}
 
 {% block body %}
-    Ecrire le code de la page d'accueil ici
-{% endblock %}
+    {{ include('evenement.html.twig') }}
 
+    {# Section des cours de tes collègues #}
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        {# ... le reste du contenu de la page d'accueil ... #}
+    </div>
+{% endblock %}

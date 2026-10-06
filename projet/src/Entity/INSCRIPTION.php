@@ -33,10 +33,10 @@ class INSCRIPTION
     private ?FACTURE $id_facture = null;
 
     #[ORM\ManyToOne]
-    private ?RESPONSABLELEGAL $id_responsable_legal_1 = null;
+    private Collection $id_responsable_legal_1;
 
     #[ORM\ManyToOne]
-    private ?RESPONSABLELEGAL $id_responsable_legal_2 = null;
+    private Collection $id_responsable_legal_2;
 
     #[ORM\ManyToOne(inversedBy: 'iNSCRIPTIONs')]
     #[ORM\JoinColumn(nullable: false)]
@@ -107,6 +107,14 @@ class INSCRIPTION
 
         return $this;
     }
+
+
+    public function __construct()
+    {
+        $this->id_responsable_legal_1 = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->id_responsable_legal_2 = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     /**
      * @return Collection<int, RESPONSABLELEGAL>

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class InscriptionController extends AbstractController
 {
-    #[Route('/inscription', name: 'app_inscription')]
+    #[Route('/preinscription', name: 'app_inscription')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         // On crée d'abord les objets vides en mémoire
@@ -39,7 +39,7 @@ final class InscriptionController extends AbstractController
         }
 
         // 5. Sinon, on affiche la vue Twig en lui passant le formulaire
-        return $this->render('inscription/index.html.twig', [
+        return $this->render('inscription/preinscription.html.twig', [
             'form_inscription' => $form->createView(),
         ]);
 

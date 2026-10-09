@@ -48,4 +48,9 @@ services:
       MYSQL_USER: iut
       MYSQL_PASSWORD: iut
       MYSQL_ROOT_PASSWORD: iut
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
 

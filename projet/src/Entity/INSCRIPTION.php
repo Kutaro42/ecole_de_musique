@@ -32,11 +32,11 @@ class INSCRIPTION
     #[ORM\JoinColumn(nullable: false)]
     private ?FACTURE $id_facture = null;
 
-    #[ORM\ManyToOne]
-    private Collection $id_responsable_legal_1;
+    #[ORM\ManyToOne(targetEntity: RESPONSABLELEGAL::class, cascade: ['persist'])]
+    private ?RESPONSABLELEGAL $id_responsable_legal_1 = null;
 
-    #[ORM\ManyToOne]
-    private Collection $id_responsable_legal_2;
+    #[ORM\ManyToOne(targetEntity: RESPONSABLELEGAL::class, cascade: ['persist'])]
+    private ?RESPONSABLELEGAL $id_responsable_legal_2 = null;
 
     #[ORM\ManyToOne(inversedBy: 'iNSCRIPTIONs')]
     #[ORM\JoinColumn(nullable: false)]
@@ -108,60 +108,9 @@ class INSCRIPTION
         return $this;
     }
 
-
-    public function __construct()
-    {
-        $this->id_responsable_legal_1 = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->id_responsable_legal_2 = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-
-    /**
-     * @return Collection<int, RESPONSABLELEGAL>
-     */
-    public function getIdResponsableLegal1(): Collection
+public function getIdResponsableLegal1(): ?RESPONSABLELEGAL
     {
         return $this->id_responsable_legal_1;
-    }
-
-    public function addIdResponsableLegal1(RESPONSABLELEGAL $idResponsableLegal1): static
-    {
-        if (!$this->id_responsable_legal_1->contains($idResponsableLegal1)) {
-            $this->id_responsable_legal_1->add($idResponsableLegal1);
-        }
-
-        return $this;
-    }
-
-    public function removeIdResponsableLegal1(RESPONSABLELEGAL $idResponsableLegal1): static
-    {
-        $this->id_responsable_legal_1->removeElement($idResponsableLegal1);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, RESPONSABLELEGAL>
-     */
-    public function getIdResponsableLegal2(): Collection
-    {
-        return $this->id_responsable_legal_2;
-    }
-
-    public function addIdResponsableLegal2(RESPONSABLELEGAL $idResponsableLegal2): static
-    {
-        if (!$this->id_responsable_legal_2->contains($idResponsableLegal2)) {
-            $this->id_responsable_legal_2->add($idResponsableLegal2);
-        }
-
-        return $this;
-    }
-
-    public function removeIdResponsableLegal2(RESPONSABLELEGAL $idResponsableLegal2): static
-    {
-        $this->id_responsable_legal_2->removeElement($idResponsableLegal2);
-
-        return $this;
     }
 
     public function setIdResponsableLegal1(?RESPONSABLELEGAL $id_responsable_legal_1): static
@@ -169,6 +118,11 @@ class INSCRIPTION
         $this->id_responsable_legal_1 = $id_responsable_legal_1;
 
         return $this;
+    }
+
+    public function getIdResponsableLegal2(): ?RESPONSABLELEGAL
+    {
+        return $this->id_responsable_legal_2;
     }
 
     public function setIdResponsableLegal2(?RESPONSABLELEGAL $id_responsable_legal_2): static

@@ -30,7 +30,7 @@ class InscriptionType extends AbstractType
             ])
             ->add('id_responsable_legal_1', EntityType::class, [
                 'class' => RESPONSABLELEGAL::class,
-                'choice_label' => 'id', // Idéalement, remplace 'id' par le nom du responsable si le champ existe (ex: 'nom')
+                'choice_label' => 'nom', // Idéalement, remplace 'id' par le nom du responsable si le champ existe (ex: 'nom')
                 'multiple' => true,      // <-- AJOUT CRUCIAL : Indique que c'est une collection (ManyToMany)
                 'expanded' => false,     // false = menu déroulant / true = cases à cocher
                 'label' => 'Responsable légal 1',

@@ -9,7 +9,11 @@
             <h1 class="text-4xl font-extrabold text-[#2b1810] tracking-tight">Détail des enseignements</h1>
             <p class="mt-4 text-[#7d5e54]">Découvrez en profondeur chaque parcours musical proposé par notre école.</p>
         </div>
-
+        {% set images = {
+            'Éveil musical': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Ncq4F3gM616iLDqgQlp-Li42wx_e7r-qBdK6veOY-w&s=10',
+            "Cours d'Instruments": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7L2htzrf3-57PgkjhoWiRAK9ybJufiRCVQKZXOZf4qw&s=10',
+            'Pratique collective': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BZrjCmW51MBAZLRrxNxSBiIXCIaUjXtQLF_UhR2I2Q&s=10'
+        } %}
         <div class="flex flex-col gap-12">
             {% for discipline in disciplines %}
                 {# L'attribut id est crucial ici pour l'ancre, scroll-mt-24 évite que le titre colle trop en haut de l'écran #}
@@ -17,8 +21,7 @@
 
                     {# Zone Image (plus grande sur cette page) #}
                     <div class="md:w-1/3 bg-[#ecd3cb] flex flex-col items-center justify-center text-[#935848] text-sm font-medium border-b md:border-b-0 md:border-r border-[#e5c0b5] p-8 min-h-[200px]">
-                        <span class="text-4xl mb-2">🎵</span>
-                        <span class="text-center">Image {{ discipline.nom }}</span>
+                        <img src="{{ images[discipline.nom]|default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BZrjCmW51MBAZLRrxNxSBiIXCIaUjXtQLF_UhR2I2Q&s=10') }}" alt="{{ discipline.nom }}" class="w-full h-full object-cover">
                     </div>
 
                     {# Zone Détails #}

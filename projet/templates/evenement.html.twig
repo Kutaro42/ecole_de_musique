@@ -1,0 +1,53 @@
+{# Informational Banner JPO 2026 - Thème Nude / Rose Poudré #}
+<section class="w-full bg-[#faebe6] border-y border-[#edd5ce] text-[#3c2a25] rounded-none py-3 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col gap-3">
+
+        {# En-tête : icône + titre + sous-titre #}
+        <div class="flex items-center gap-3">
+            <span class="p-2 bg-[#ecd3cb] text-[#b85d43] rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+            </span>
+            <div>
+                <h2 class="text-lg font-bold text-[#2b1810] leading-snug">Inscriptions Ouvertes !</h2>
+                <p class="text-xs text-[#7d5e54]">Ne manquez pas la période d'inscription pour l'année scolaire prochaine</p>
+            </div>
+        </div>
+
+        {# Grille des 3 encarts (reprise du fond rose/terracotta des cartes de cours) #}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {# Date d'inscription #}
+            <div class="bg-[#ecd3cb] border border-[#e2bebe] p-3.5 rounded-lg flex flex-col justify-center">
+                <p class="text-xs uppercase tracking-wider text-[#935848] font-bold mb-0.5 flex items-center gap-1.5">
+                    Date d'inscription
+                </p>
+                <p class="text-base font-bold text-[#2b1810]">27 Juin 2026</p>
+            </div>
+
+            {# Horaires #}
+            <div class="bg-[#ecd3cb] border border-[#e2bebe] p-3.5 rounded-lg flex flex-col justify-center">
+                <p class="text-xs uppercase tracking-wider text-[#935848] font-bold mb-0.5 flex items-center gap-1.5">
+                    Horaires
+                </p>
+                <p class="text-base font-bold text-[#2b1810]">14h - 19h</p>
+            </div>
+
+            {# Lieu d'accueil #}
+            <div class="bg-[#ecd3cb] border border-[#e2bebe] p-3.5 rounded-lg flex flex-col justify-center">
+                <p class="text-xs uppercase tracking-wider text-[#935848] font-bold mb-0.5 flex items-center gap-1.5">
+                    Lieu d'accueil
+                </p>
+                <p class="text-sm font-bold text-[#2b1810] leading-tight">École de musique Mille et une notes</p>
+            </div>
+        </div>
+
+        {# Bouton d'action pré-inscription (même style que les boutons "Plus d'information") #}
+        <div class="pt-0.5">
+            <a href="/preinscription" class="inline-flex items-center gap-1.5 bg-[#ebd0c7] hover:bg-[#dfc0b6] text-[#2b1810] text-xs font-semibold px-4 py-2 rounded-md border border-[#d6b0a4] transition shadow-xs">
+                Pré-inscription dès maintenant
+            </a>
+        </div>
+
+    </div>
+</section>

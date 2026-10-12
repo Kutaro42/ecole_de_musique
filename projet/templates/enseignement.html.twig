@@ -1,0 +1,56 @@
+{# Section US 3 : Nos types de cours #}
+<section class="max-w-7xl mx-auto px-4 py-12">
+    {# En-tête de section #}
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-extrabold text-[#2b1810] tracking-tight">Nos types de cours</h2>
+        <p class="mt-2 text-sm text-[#7d5e54] max-w-xl mx-auto">
+            Découvrez les différents formats proposés par l'école pour s'adapter à chaque âge et chaque envie.
+        </p>
+    </div>
+
+    {# Dictionnaire des tarifs selon la maquette #}
+    {% set tarifs = {
+        'Éveil musical': '150€/an',
+        "Cours d'Instruments": '450€/an',
+        "Cours d'instruments": '450€/an',
+        'Pratique collective': '200€/an'
+    } %}
+
+    {# Grille des 3 types d'enseignements #}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        {% for discipline in disciplines %}
+            <article class="bg-white rounded-2xl border border-[#ebd0c7] shadow-xs overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    {# Encart Image (fond rose poudré comme sur la maquette) #}
+                    <div class="h-44 bg-[#ecd3cb] flex items-center justify-center text-[#935848] text-sm font-medium border-b border-[#e5c0b5]">
+                        <span>Image {{ discipline.nom }}</span>
+                    </div>
+
+                    {# Détails du cours #}
+                    <div class="p-6">
+                        <div class="flex items-baseline justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-bold text-[#2b1810]">{{ discipline.nom }}</h3>
+                            <span class="text-base font-bold text-[#b85d43] whitespace-nowrap">
+                                {{ tarifs[discipline.nom]|default('Sur devis') }}
+                            </span>
+                        </div>
+                        <p class="text-xs text-[#6e544c] leading-relaxed">
+                            {{ discipline.description }}
+                        </p>
+                    </div>
+                </div>
+
+                {# Bouton Plus d'information (teinte nude / terracotta) #}
+                <div class="p-6 pt-0">
+                    <a href="{{ path('enseignements') }}#cours-{{ discipline.id }}" class="w-full inline-flex items-center justify-center gap-1.5 bg-[#ecd3cb] hover:bg-[#dfc0b6] text-[#2b1810] text-xs font-semibold py-2.5 px-4 rounded-xl border border-[#d6b0a4] transition">
+                        <span>ⓘ</span> Plus d'information
+                    </a>
+                </div>
+            </article>
+        {% else %}
+            <div class="col-span-3 text-center py-10 bg-white rounded-xl border border-[#ebd0c7] text-[#7d5e54] text-sm">
+                Aucun enseignement n'est enregistré pour le moment.
+            </div>
+        {% endfor %}
+    </div>
+</section>

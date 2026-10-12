@@ -45,6 +45,17 @@ Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
 **Si vous installez une 2e fois la stack sur une machine**, vous allez avoir des conflits de noms de containers :
 la variable CONTAINER_PREFIX dans .env.dist, à enregistrer en .env est là pour ça.
 
+Installation des dépendance php 
+----------------
+Ouvrir un shell interactif
+`docker exec -it iut-php bash`
+
+Se déplacer dans le répertoire projet 
+`cd /var/www/html/projet`
+
+Installer les dépendances
+`composer install`
+
 Utiliser la base de données
 -----------------------------
 
@@ -76,6 +87,14 @@ Initialiser le projet revient ensuite à faire (dans le container) :
 composer create-project symfony/skeleton:"8.1.x" projet
 cd projet
 composer require webapp
+```
+
+Apres cela il faut faire passer les différentes migrations
+
+```
+docker exec -it iut-php bash
+cd projet
+php bin/console d:m:m -n
 ```
 
 **Attention :** On utilise `webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. 
@@ -111,3 +130,10 @@ Préfixer le message de commit par l'un des identificateur suivant
 Commentaire explicité clairement EN FRANÇAIS.
 
 Comportement de push.
+
+
+Pour effectuer les test il faut creer une base de test :`php bin/console doctrine:database:create --env=test`
+
+Effectuer les migrations : `php bin/console doctrine:migrations:migrate --env=test`
+
+Effectuer les fixtures : `php bin/console doctrine:fixtures:load --env=test --no-interaction`

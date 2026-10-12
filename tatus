@@ -1,0 +1,238 @@
+[33mcommit 5255db82e51bf5f24dd4be1000a3da318a881c4d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Merge: e5dca7a 00700f1
+Author: Nathan Durand <nathan.durand@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 15:54:43 2026 +0200
+
+    Merge branch 'US4' into 'dev'
+    
+    Us4
+    
+    See merge request 2026-2027-but-info2-dfs-ecolemusique/l1/l-1-groupe-l-11-stack-php!4
+
+[33mcommit 00700f1c20c2e56ac92a5e59c4c966bca518726d[m[33m ([m[1;31morigin/US4[m[33m, [m[1;32mUS4[m[33m)[m
+Author: Alexandre A. <aaubin02@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 15:51:28 2026 +0200
+
+    <<FEATURE>> : Création de la base de donnée complète pour US4 (et US3 dans la foulée)
+
+[33mcommit e5dca7a7e712ce1e0c56d02a3a589e2db49f3222[m
+Merge: 663e4a4 6ae4894
+Author: Gibeaud Maxime <maxime.gibeaud@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 15:23:34 2026 +0200
+
+    Merge branch 'US2' into 'dev'
+    
+    <<featurs>> US2 finalisé
+    
+    See merge request 2026-2027-but-info2-dfs-ecolemusique/l1/l-1-groupe-l-11-stack-php!3
+
+[33mcommit 663e4a4f0f6634a593ec3561d17f51dbe20ef986[m
+Merge: c7c57d2 684e3b8
+Author: Gibeaud Maxime <maxime.gibeaud@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 15:20:42 2026 +0200
+
+    Merge branch 'TEST-Symfony' into 'dev'
+    
+    <<merge>> Ajout des protocoles de tests + Ajout des tests sur le controller Music
+    
+    See merge request 2026-2027-but-info2-dfs-ecolemusique/l1/l-1-groupe-l-11-stack-php!2
+
+[33mcommit 684e3b82fe46070c587f9ac4aea36d49370e9a9e[m
+Author: Nathan Durand <nduran03@univ-lr.fr>
+Date:   Mon Oct 5 15:12:16 2026 +0200
+
+    <<features>> Ajout des protocoles de tests + Ajout des tests sur le controller Music
+
+[33mcommit 6ae48947264663b81bdfb1fba22c6f0aa4325651[m
+Author: maxime <maxime.gibeaud@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 14:17:57 2026 +0200
+
+    <<featurs>> US2 finalisé
+
+[33mcommit cb1fd83e3650b4a43ddd074cf3589181d761d748[m
+Author: Alexandre A. <aaubin02@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 13:40:16 2026 +0200
+
+    <<FEATURE>> : Mise en place et déploiement du service de BD à l'intérieur de la stack
+
+[33mcommit c7c57d2ba5dd676c54900cc0785af499c1413c3c[m
+Author: Alexandre A. <aaubin02@etudiant.univ-lr.fr>
+Date:   Mon Oct 5 13:21:38 2026 +0200
+
+    <<FIX>> ajout d'une commande d'installation intégrée au compose.yml pour installer composer automatiquement quand on lance sa stack après l'avoir récupéré depuis le dépôt
+
+[33mcommit fd8f1282e0631166d55ca58da12fb8fb3868cd46[m
+Merge: 5b76d41 17e5101
+Author: Aubin Alexandre <alexandre.aubin@etudiant.univ-lr.fr>
+Date:   Fri Oct 2 14:51:59 2026 +0200
+
+    Merge branch 'accéder-a-la-page-accueil-du-site' into 'dev'
+    
+    <<Merge>> US1 Fini - Ajout d'un header et footer + Ajout d'un controller
+    
+    See merge request 2026-2027-but-info2-dfs-ecolemusique/l1/l-1-groupe-l-11-stack-php!1
+
+[33mcommit 17e5101b7adbfa4efd824a6a24c7ed7ba808010c[m
+Author: Nathan Durand <nduran03@univ-lr.fr>
+Date:   Fri Oct 2 13:34:14 2026 +0200
+
+    <<feature>> US1 Fini - Ajout d'un header et footer + Ajout d'un controller
+
+[33mcommit 5b76d415dc49f7f1284141fbbf2fa155dd3994e4[m
+Author: Nathan Durand <nduran03@univ-lr.fr>
+Date:   Fri Oct 2 12:10:29 2026 +0200
+
+    <<feature>> Ajout de tailwind au projet
+
+[33mcommit 138c1d35f605d9e318f65f2fe1d9f291939908ef[m
+Author: maxime <maxime.gibeaud@etudiant.univ-lr.fr>
+Date:   Mon Sep 28 12:04:00 2026 +0200
+
+    << feature >> Suppression du lien du fichier init et ajout du guide d'intallation des dépendance php dans le README
+
+[33mcommit da04fee330adad7b284c530439d17a6cc6dc3c60[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Alexandre A. <alexandre.aubin@etudiant.univ-lr.fr>
+Date:   Mon Sep 28 11:35:44 2026 +0200
+
+    <<feature>> ajout du projet
+
+[33mcommit d30e3cd073e45a39cd70f0d0b6f58cb285306206[m
+Author: Alexandre A. <alexandre.aubin@etudiant.univ-lr.fr>
+Date:   Mon Sep 28 11:16:10 2026 +0200
+
+    Push initial
+
+[33mcommit 7ca79cdd1a37a594453d4e8a3b6b9769ca82d91e[m
+Author: Sylvain Ferlac <sylvain.ferlac@univ-lr.fr>
+Date:   Sun Sep 27 21:26:22 2026 +0200
+
+    restreindre le gitignore au .env de la racine
+
+[33mcommit 79eb049c91ee945af191bee9a896073983bb7ac3[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Thu Sep 3 21:39:14 2026 +0200
+
+    Corriger les fautes et améliorer la rédaction dans le README.
+
+[33mcommit 2362e8f30197bf80f9ece7d573c1f964f4b28675[m
+Merge: 58d3a44 9604063
+Author: Sylvain Ferlac <sylvain.ferlac@univ-lr.fr>
+Date:   Thu Sep 3 21:05:55 2026 +0200
+
+    Merge branch '2026' into 'main'
+    
+    PHP 8.5
+    
+    See merge request qual3/stack-php!4
+
+[33mcommit 96040635d197e929231d37c63c62960cacc26eec[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Thu Sep 3 20:55:28 2026 +0200
+
+    Supprimer XDebug, mettre à jour les versions de PHP, MariaDB, et ajuster la configuration de la stack.
+
+[33mcommit 58d3a441716a286b5a89e3bda3b92bc1f23eaba1[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Fri Oct 10 14:03:08 2025 +0200
+
+    Installer les locales pour avoir le français
+
+[33mcommit 06ec408d414006375fee8ff1dabf0a6ed72ce07a[m
+Author: Sylvain Ferlac <sylvain.ferlac@univ-lr.fr>
+Date:   Mon Oct 6 10:29:35 2025 +0200
+
+    Résoudre les problèmes de droits sous Linux
+
+[33mcommit 1b608ec57994a8201755b98dddb9fc0d5c9b919d[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Thu Oct 2 08:03:58 2025 +0200
+
+    Intégrer mod_rewrite pour le controleur frontal symfony dans le vhost symfony
+
+[33mcommit 69966c2372b6c4a8fdcae372828c4d1c1f456c0e[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Tue Sep 2 18:04:43 2025 +0200
+
+    Bump version de Symfony
+
+[33mcommit 4ef4eb5032af7c87e1179f55af973d67588cd041[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Tue Sep 2 17:08:24 2025 +0200
+
+    Update README
+
+[33mcommit b47f5b4921e866cddd23d28f9b4fa9cd518128ad[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Tue Sep 2 17:02:33 2025 +0200
+
+    Ajout de PHPMyAdmin et création de 2 bases
+
+[33mcommit ee3919b48b17d8f82aa11dd582dedcec36f87c86[m
+Merge: fa5800a 375f727
+Author: Cyril Faucher <cyril.faucher@univ-lr.fr>
+Date:   Mon Sep 2 21:42:17 2024 +0200
+
+    Merge branch 'maj2025' into 'main'
+    
+    MàJ 2024
+    
+    See merge request qual3/stack-php!2
+
+[33mcommit 375f727bb5dd6b2c0b83d6ea44798d8edd2366f5[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Mon Sep 2 19:24:17 2024 +0200
+
+    MàJ 2024
+
+[33mcommit fa5800a70695ec64b4a6b6c0eb5c977b4f49ffec[m
+Author: csuire01 <cyrille.suire@univ-lr.fr>
+Date:   Sun Sep 24 14:27:34 2023 +0200
+
+    Update installation instructions
+
+[33mcommit 0de0ff7ad48c00902a78f8c61d90eb23015c312c[m
+Author: csuire01 <cyrille.suire@univ-lr.fr>
+Date:   Sun Sep 24 14:12:25 2023 +0200
+
+    Add linux-headers in php/Dockerfile
+
+[33mcommit 45ec86e98e5e86127b8183793eaf63ea4dd52991[m
+Merge: 6ff30c0 74ab176
+Author: Sylvain Ferlac <sylvain.ferlac@etudiant.univ-lr.fr>
+Date:   Mon Sep 12 15:52:06 2022 +0200
+
+    Merge branch 'maj2022' into 'main'
+    
+    maj stack 2022
+    
+    See merge request qual3/stack-php!1
+
+[33mcommit 74ab176e7e476b4a001a8999ff3728977a0586a0[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Mon Sep 12 15:50:44 2022 +0200
+
+    Install symfony : mettre la version en dur pour éviter les surprises en novembre...
+
+[33mcommit 7d981d2d8d6fd16bf80196a4b0800eae8a6821a9[m
+Author: Sylvain Ferlac <sylvain@cirdan.net>
+Date:   Mon Sep 12 15:48:32 2022 +0200
+
+    Activer la CLI symfony
+
+[33mcommit 0f796be4f53a5a0fc71a0517d8f26c6d4cf8e4e4[m
+Author: Sylvain Ferlac <sylvain.ferlac@etudiant.univ-lr.fr>
+Date:   Mon Sep 12 14:49:21 2022 +0200
+
+    maj stack 2022
+
+[33mcommit 6ff30c043e6e897eed3a45d9eb8a6d2c267fa778[m
+Author: Sylvain Ferlac <sylvain.ferlac@etudiant.univ-lr.fr>
+Date:   Mon Sep 12 14:43:17 2022 +0200
+
+    On télécharge la stack depuis le bon dépôt
+
+[33mcommit 718ba3efbca4215a088af7b8d083cc0cce432d79[m
+Author: csuire01 <cyrille.suire@univ-lr.fr>
+Date:   Fri Sep 9 12:08:01 2022 +0200
+
+    Initial commit

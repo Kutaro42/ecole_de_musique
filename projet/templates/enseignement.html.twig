@@ -16,6 +16,12 @@
         'Pratique collective': '200€/an'
     } %}
 
+    {% set images = {
+        'Éveil musical': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Ncq4F3gM616iLDqgQlp-Li42wx_e7r-qBdK6veOY-w&s=10',
+        "Cours d'Instruments": 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7L2htzrf3-57PgkjhoWiRAK9ybJufiRCVQKZXOZf4qw&s=10',
+        'Pratique collective': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BZrjCmW51MBAZLRrxNxSBiIXCIaUjXtQLF_UhR2I2Q&s=10'
+    } %}
+
     {# Grille des 3 types d'enseignements #}
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         {% for discipline in disciplines %}
@@ -23,7 +29,7 @@
                 <div>
                     {# Encart Image (fond rose poudré comme sur la maquette) #}
                     <div class="h-44 bg-[#ecd3cb] flex items-center justify-center text-[#935848] text-sm font-medium border-b border-[#e5c0b5]">
-                        <span>Image {{ discipline.nom }}</span>
+                        <img src="{{ images[discipline.nom]|default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BZrjCmW51MBAZLRrxNxSBiIXCIaUjXtQLF_UhR2I2Q&s=10') }}" alt="{{ discipline.nom }}" class="w-full h-full object-cover">
                     </div>
 
                     {# Détails du cours #}

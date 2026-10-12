@@ -130,3 +130,10 @@ Préfixer le message de commit par l'un des identificateur suivant
 Commentaire explicité clairement EN FRANÇAIS.
 
 Comportement de push.
+
+
+Pour effectuer les test il faut creer une base de test :`php bin/console doctrine:database:create --env=test`
+
+Effectuer les migrations : `php bin/console doctrine:migrations:migrate --env=test`
+
+Effectuer les fixtures : `php bin/console doctrine:fixtures:load --env=test --no-interaction`

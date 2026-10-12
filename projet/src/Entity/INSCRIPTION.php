@@ -40,7 +40,7 @@ class INSCRIPTION
 
     #[ORM\ManyToOne(inversedBy: 'iNSCRIPTIONs')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?COURS $id_cours = null;
+    private ?DISCIPLINE $id_discipline = null;
 
 
     public function getId(): ?int
@@ -132,14 +132,14 @@ public function getIdResponsableLegal1(): ?RESPONSABLELEGAL
         return $this;
     }
 
-    public function getIdCours(): ?COURS
+    public function getIdDiscipline(): ?DISCIPLINE
     {
-        return $this->id_cours;
+        return $this->id_discipline;
     }
 
-    public function setIdCours(?COURS $id_cours): static
+    public function setIdDiscipline(?DISCIPLINE $id_discipline): static
     {
-        $this->id_cours = $id_cours;
+        $this->id_discipline = $id_discipline;
 
         return $this;
     }

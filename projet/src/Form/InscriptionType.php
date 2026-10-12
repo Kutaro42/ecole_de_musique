@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\COURS;
+use App\Entity\DISCIPLINE;
 use App\Entity\ELEVE;
 use App\Entity\FACTURE;
 use App\Entity\INSCRIPTION;
@@ -37,8 +37,8 @@ class InscriptionType extends AbstractType
             ->add('id_responsable_legal_2', ResponsableLegalType::class, [
                 'label' => 'Responsable légal 2',
             ])
-            ->add('id_cours', EntityType::class, [
-                'class' => COURS::class,
+            ->add('id_discipline', EntityType::class, [
+                'class' => DISCIPLINE::class,
                 'choice_label' => 'id',
             ]);
     }

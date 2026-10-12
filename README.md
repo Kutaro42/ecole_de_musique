@@ -89,6 +89,14 @@ cd projet
 composer require webapp
 ```
 
+Apres cela il faut faire passer les différentes migrations
+
+```
+docker exec -it iut-php bash
+cd projet
+php bin/console d:m:m -n
+```
+
 **Attention :** On utilise `webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. 
 Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
 

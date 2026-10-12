@@ -15,5 +15,4 @@ class MusicControllerTest extends WebTestCase
 
         $this->assertResponseIsSuccessful();
     }
-
 }

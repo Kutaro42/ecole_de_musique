@@ -10,12 +10,25 @@
     <header class="w-full h-16 px-4 rounded-none bg-white flex items-center justify-between ">
 
         <div class="flex items-center gap-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/461/461095.png" width="30px" height="30px">
-            <div>
-                <p class="font-bold leading-tight text-orange-500">Mille et une notes</p>
-                <p class="text-xs text-gray-500">Ecole de musique et d'éveil artistique</p>
-            </div>
+            <a href="{{ path('accueil') }}">
+                <img src="https://cdn-icons-png.flaticon.com/512/461/461095.png" width="30px" height="30px">
+                <div>
+                    <p class="font-bold leading-tight text-orange-500">Mille et une notes</p>
+                    <p class="text-xs text-gray-500">Ecole de musique et d'éveil artistique</p>
+                </div>
+            </a>
+
         </div>
+
+        <nav role="navigation">
+            <a href="{{ path('enseignements') }}" class="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-md transition-colors">
+                Enseignements
+            </a>
+            <a href="{{ path('app_inscription') }}" class="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-md transition-colors">
+                Inscription
+            </a>
+
+        </nav>
     </header>
 
 

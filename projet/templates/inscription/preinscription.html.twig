@@ -51,9 +51,9 @@
                     {{ form_row(form_inscription.id_eleve.adresse_principale, {'label': 'Adresse postale résidentielle *', 'attr': {'placeholder': 'Ex. 18 rue des Fleurs, 17000 La Rochelle', 'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}
                 </div>
 
-                <div style="margin-top: 15px;">
+                <!--div style="margin-top: 15px;">
                     {{ form_row(form_inscription.id_eleve.cycle_musical, {'label': 'Cursus / Cycle musical', 'attr': {'placeholder': 'Ex. 2e cycle – Piano', 'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}
-                </div>
+                </div-->
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
                     <div>{{ form_row(form_inscription.id_eleve.tel_portable, {'label': 'Portable *', 'attr': {'placeholder': 'Ex. 06 12 34 56 78', 'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}</div>
@@ -63,14 +63,25 @@
                 <div style="margin-top: 15px; width: 50%; padding-right: 10px;">
                     {{ form_row(form_inscription.id_eleve.tel_professionnel, {'label': 'Bureau', 'attr': {'placeholder': 'Ex. 05 46 56 66 77', 'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}
                 </div>
+
+                {# Champ élève majeur (anciennement en commentaire) #}
+                <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #4a5568;">
+                    {{ form_widget(form_inscription.id_eleve.eleve_majeur) }}
+                    {{ form_label(form_inscription.id_eleve.eleve_majeur, 'L\'élève est majeur') }}
+                </div>
             </fieldset>
 
             {# === SECTION INSCRIPTION === #}
             <fieldset style="border: 1px solid #b7e1cd; padding: 30px; border-radius: 16px; margin-bottom: 25px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
                 <legend style="font-weight: bold; color: #137333; padding: 0 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-                    <span style="background: #e6f4ea; padding: 2px 8px; border-radius: 6px; font-size: 0.8rem;">02</span> Options d'inscription & cours
+                    <span style="background: #e6f4ea; padding: 2px 8px; border-radius: 6px; font-size: 0.8rem;">02</span> Options d'inscription & discipline
                 </legend>
                 <p style="font-size: 0.8rem; color: #8a94a6; margin-top: 2px; margin-bottom: 20px;">Informations administratives complémentaires.</p>
+                
+                {# Champ sélection de la discipline (anciennement en commentaire) #}
+                <div style="margin-top: 10px;">
+                    {{ form_row(form_inscription.id_discipline, {'label': 'Sélection de la discipline de musique', 'attr': {'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}
+                </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
                     <div>{{ form_row(form_inscription.coeff_famillial, {'label': 'Quotient / Coefficient familial', 'attr': {'placeholder': 'Ex. 850', 'style': 'width: 100%; padding: 10px 14px; border: 1px solid #dcdfe6; border-radius: 6px; margin-top: 6px;'}}) }}</div>

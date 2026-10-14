@@ -36,10 +36,11 @@ class InscriptionType extends AbstractType
             ])
             ->add('id_responsable_legal_2', ResponsableLegalType::class, [
                 'label' => 'Responsable légal 2',
+                'required' => false, // ce responsable est facultatif
             ])
             ->add('id_discipline', EntityType::class, [
                 'class' => DISCIPLINE::class,
-                'choice_label' => 'id',
+                'choice_label' => 'nom',
             ]);
     }
 

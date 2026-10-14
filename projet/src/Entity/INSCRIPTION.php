@@ -15,7 +15,7 @@ class INSCRIPTION
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_inscription')]
+    #[ORM\ManyToOne(inversedBy: 'id_inscription',cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?ELEVE $id_eleve = null;
 

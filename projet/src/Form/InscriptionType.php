@@ -39,7 +39,7 @@ class InscriptionType extends AbstractType
                 'class' => DISCIPLINE::class,
                 'choice_label' => 'nom', // La propriété à afficher dans le menu (ex: nom, libelle)
                 'label' => 'Sélectionnez votre discipline',
-                'placeholder' => '--- Choisir parmi les 3 disciplines ---',
+                'placeholder' => 'Choisir une discipline',
                 'expanded' => false, // false = menu déroulant <select>
                 'multiple' => false, // Choix unique
             ])

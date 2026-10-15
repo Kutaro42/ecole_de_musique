@@ -43,6 +43,27 @@ class INSCRIPTION
     //#[ORM\ManyToOne(targetEntity: COURS::class)]
     //#[ORM\JoinColumn(name: 'id_cours', referencedColumnName: 'id', nullable: false)]
     //private ?COURS $id_cours = null;
+    #[Assert\Callback]
+    public function validerResponsableMineur(ExecutionContextInterface $context): void
+    {
+        $eleve = $this->getIdEleve();
+        $responsable1 = $this->getIdResponsableLegal1();
+
+        if ($eleve && $eleve->getDateNaissance()) {
+            $aujourdhui = new \DateTime();
+            $age = $aujourdhui->diff($eleve->getDateNaissance())->y;
+
+            // Si l'élève est mineur, on exige que le Responsable 1 soit rempli
+            if ($age < 18) {
+                if (!$responsable1 || empty($responsable1->getNom())) {
+                    $context->buildViolation("Le nom du responsable légal 1 est obligatoire pour un élève mineur.")
+                        ->atPath('id_responsable_legal_1.nom') // Associe l'erreur au champ exact
+                        ->addViolation();
+                }
+                // Vous pouvez faire de même pour le prénom, l'email, etc.
+            }
+        }
+    }
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -163,6 +184,7 @@ public function getIdResponsableLegal1(): ?RESPONSABLELEGAL
 
         return $this;
     }
+
 
 
 }

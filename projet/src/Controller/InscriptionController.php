@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class InscriptionController extends AbstractController
 {
-    #[Route('/preinscription', name: 'app_inscription')]
+
     #[Route('/preinscription', name: 'app_inscription')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -37,5 +37,11 @@ final class InscriptionController extends AbstractController
         return $this->render('inscription/preinscription.html.twig', [
             'form_inscription' => $form->createView(),
         ]);
+        
+    }
+    #[Route('/inscription/confirmation', name: 'app_confirmation')]
+    public function confirmation(): Response
+    {
+        return $this->render('inscription/confirmation.html.twig');
     } 
 }

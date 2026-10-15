@@ -28,9 +28,6 @@ class ELEVE
     #[ORM\Column(nullable: true)]
     private ?int $age = null;
 
-    // --- LA SEULE ET UNIQUE DÉCLARATION DE CYCLE_MUSICAL EN INT ---
-    #[ORM\Column(nullable: false)]
-    private ?int $cycle_musical = null;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $tel_domicile = null;
@@ -107,16 +104,6 @@ class ELEVE
         return $this;
     }
 
-    public function getCycleMusical(): ?int
-    {
-        return $this->cycle_musical;
-    }
-
-    public function setCycleMusical(?int $cycle_musical): static
-    {
-        $this->cycle_musical = $cycle_musical;
-        return $this;
-    }
 
     public function getTelDomicile(): ?string
     {

@@ -38,9 +38,23 @@ class INSCRIPTION
     #[ORM\ManyToOne(targetEntity: RESPONSABLELEGAL::class, cascade: ['persist'])]
     private ?RESPONSABLELEGAL $id_responsable_legal_2 = null;
 
-    #[ORM\ManyToOne(inversedBy: 'iNSCRIPTIONs')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?DISCIPLINE $id_discipline = null;
+    // Dans src/Entity/INSCRIPTION.php
+
+    #[ORM\ManyToOne(targetEntity: COURS::class)]
+    #[ORM\JoinColumn(name: 'id_cours', referencedColumnName: 'id', nullable: false)]
+    private ?COURS $id_cours = null;
+
+    // N'oubliez pas les getters et setters associés :
+    public function getIdCours(): ?COURS
+    {
+        return $this->id_cours;
+    }
+
+    public function setIdCours(?COURS $id_cours): static
+    {
+        $this->id_cours = $id_cours;
+        return $this;
+    }
 
 
     public function getId(): ?int
@@ -132,15 +146,5 @@ public function getIdResponsableLegal1(): ?RESPONSABLELEGAL
         return $this;
     }
 
-    public function getIdDiscipline(): ?DISCIPLINE
-    {
-        return $this->id_discipline;
-    }
 
-    public function setIdDiscipline(?DISCIPLINE $id_discipline): static
-    {
-        $this->id_discipline = $id_discipline;
-
-        return $this;
-    }
 }

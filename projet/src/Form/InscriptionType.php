@@ -30,6 +30,12 @@ class InscriptionType extends AbstractType
                 'class' => FACTURE::class,
                 'choice_label' => 'id',
             ])*/
+            // Dans InscriptionType.php
+            ->add('id_cours', EntityType::class, [
+                'class' => COURS::class,
+                'choice_label' => 'nom', // ou le champ qui affiche le nom du cours dans votre entité COURS
+                'label' => 'Cours / Discipline choisi',
+            ])
 
            ->add('id_responsable_legal_1', ResponsableLegalType::class, [
                 'label' => 'Responsable légal 1',
@@ -37,11 +43,8 @@ class InscriptionType extends AbstractType
             ->add('id_responsable_legal_2', ResponsableLegalType::class, [
                 'label' => 'Responsable légal 2',
                 'required' => false, // ce responsable est facultatif
-            ])
-            ->add('id_discipline', EntityType::class, [
-                'class' => DISCIPLINE::class,
-                'choice_label' => 'nom',
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

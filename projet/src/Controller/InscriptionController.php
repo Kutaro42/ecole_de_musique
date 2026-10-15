@@ -15,34 +15,27 @@ use Symfony\Component\Routing\Attribute\Route;
 final class InscriptionController extends AbstractController
 {
     #[Route('/preinscription', name: 'app_inscription')]
+    #[Route('/preinscription', name: 'app_inscription')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // On crée d'abord les objets vides en mémoire
+        // 1. On instancie uniquement l'inscription vide
         $inscription = new INSCRIPTION();
-        $eleve = new ELEVE();
 
-        // Puis on lie l'élève à l'inscription pour l'imbrication
-        $inscription->setIdEleve($eleve);
-
-        // on génère le formulaire et on analyse la requête HTTP
+        // 2. On crée le formulaire lié à cette inscription
         $form = $this->createForm(InscriptionType::class, $inscription);
         $form->handleRequest($request);
 
-        // Si le formulaire est soumis et valide, on enregistre
         if ($form->isSubmitted() && $form->isValid()) {
+            // Le formulaire a déjà injecté le bon objet COURS dans l'inscription ($inscription->getIdCours())
+            
             $entityManager->persist($inscription);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Félicitations, l\'inscription a bien été validée !');
-
-            return $this->redirectToRoute('app_inscription');
+            return $this->redirectToRoute('app_confirmation');
         }
 
-        // 5. Sinon, on affiche la vue Twig en lui passant le formulaire
         return $this->render('inscription/preinscription.html.twig', [
             'form_inscription' => $form->createView(),
         ]);
-
     } 
-} 
-
+}

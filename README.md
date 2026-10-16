@@ -97,6 +97,14 @@ cd projet
 composer require webapp
 ```
 
+Apres cela il faut faire passer les différentes migrations
+
+```
+docker exec -it iut-php bash
+cd projet
+php bin/console d:m:m -n
+```
+
 **Attention :** On utilise `webapp` pour avoir une appli web complète, l'argument `projet` de l'appel est le nom du répertoire dans lequel on veut créer notre projet. 
 Il _DOIT_ s'appeler `projet`, et vous _DEVEZ_ lancer la commande dans le répertoire racine du dépôt.
 
@@ -138,3 +146,11 @@ Comportement de push.
 - Sur branche commune (dev): merge request uniquement lorsque votre branche est FONCTIONNELLE (=tourne et ne freine pas le développement des autres), peut être refusé par l'équipe en cas contraire.
 - Sur branche principale (main) : Merge request uniquement depuis la branche commune (dev), nécéssite impérativement l'accord oral ou écrit de tout les membres de l'équipe avant le push. 
 **Note : (L'Équipe se réserve le droit de vous refuser l'accès au dépot dans le cas ou vous ne respecter pas ces règles.)**
+=======
+
+Pour effectuer les test il faut creer une base de test :`php bin/console doctrine:database:create --env=test`
+
+Effectuer les migrations : `php bin/console doctrine:migrations:migrate --env=test`
+
+Effectuer les fixtures : `php bin/console doctrine:fixtures:load --env=test --no-interaction`
+

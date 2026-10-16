@@ -19,6 +19,11 @@ class DISCIPLINE
     #[ORM\Column(length: 500)]
     private ?string $description = null;
 
+    public function __toString(): string //pour permettre au formulaire incscription de manipuler les noms pour les menu burger
+    {
+        return $this->nom ?? '';
+    }
+
     public function getId(): ?int
     {
         return $this->id;

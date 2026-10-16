@@ -15,21 +15,21 @@ class INSCRIPTION
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_inscription')]
+    #[ORM\ManyToOne(inversedBy: 'id_inscription',cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?ELEVE $id_eleve = null;
 
     #[ORM\Column]
     private ?int $coeff_famillial = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $prix = null;
 
     #[ORM\Column(length: 255)]
     private ?string $police_assurance = null;
 
     #[ORM\ManyToOne(inversedBy: 'id_inscription')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?FACTURE $id_facture = null;
 
     #[ORM\ManyToOne(targetEntity: RESPONSABLELEGAL::class, cascade: ['persist'])]
@@ -38,9 +38,48 @@ class INSCRIPTION
     #[ORM\ManyToOne(targetEntity: RESPONSABLELEGAL::class, cascade: ['persist'])]
     private ?RESPONSABLELEGAL $id_responsable_legal_2 = null;
 
-    #[ORM\ManyToOne(inversedBy: 'iNSCRIPTIONs')]
+    // Dans src/Entity/INSCRIPTION.php
+
+    //#[ORM\ManyToOne(targetEntity: COURS::class)]
+    //#[ORM\JoinColumn(name: 'id_cours', referencedColumnName: 'id', nullable: false)]
+    //private ?COURS $id_cours = null;
+    #[Assert\Callback]
+    public function validerResponsableMineur(ExecutionContextInterface $context): void
+    {
+        $eleve = $this->getIdEleve();
+        $responsable1 = $this->getIdResponsableLegal1();
+
+        if ($eleve && $eleve->getDateNaissance()) {
+            $aujourdhui = new \DateTime();
+            $age = $aujourdhui->diff($eleve->getDateNaissance())->y;
+
+            // Si l'élève est mineur, on exige que le Responsable 1 soit rempli
+            if ($age < 18) {
+                if (!$responsable1 || empty($responsable1->getNom())) {
+                    $context->buildViolation("Le nom du responsable légal 1 est obligatoire pour un élève mineur.")
+                        ->atPath('id_responsable_legal_1.nom') // Associe l'erreur au champ exact
+                        ->addViolation();
+                }
+                // Vous pouvez faire de même pour le prénom, l'email, etc.
+            }
+        }
+    }
+
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?COURS $id_cours = null;
+    private ?DISCIPLINE $id_discipline = null;
+
+    // N'oubliez pas les getters et setters associés :
+    public function getIdCours(): ?COURS
+    {
+        return $this->id_cours;
+    }
+
+    public function setIdCours(?COURS $id_cours): static
+    {
+        $this->id_cours = $id_cours;
+        return $this;
+    }
 
 
     public function getId(): ?int
@@ -72,10 +111,12 @@ class INSCRIPTION
         return $this;
     }
 
+   
     public function getPrix(): ?int
     {
         return $this->prix;
     }
+
 
     public function setPrix(int $prix): static
     {
@@ -132,15 +173,18 @@ public function getIdResponsableLegal1(): ?RESPONSABLELEGAL
         return $this;
     }
 
-    public function getIdCours(): ?COURS
+    public function getIdDiscipline(): ?DISCIPLINE
     {
-        return $this->id_cours;
+        return $this->id_discipline;
     }
 
-    public function setIdCours(?COURS $id_cours): static
+    public function setIdDiscipline(?DISCIPLINE $id_discipline): static
     {
-        $this->id_cours = $id_cours;
+        $this->id_discipline = $id_discipline;
 
         return $this;
     }
+
+
+
 }

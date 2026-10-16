@@ -45,7 +45,7 @@ Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
 **Si vous installez une 2e fois la stack sur une machine**, vous allez avoir des conflits de noms de containers :
 la variable CONTAINER_PREFIX dans .env.dist, à enregistrer en .env est là pour ça.
 
-Installation des dépendance php 
+Installation des dépendance php et lancement de la BD
 ----------------
 Ouvrir un shell interactif
 `docker exec -it iut-php bash`
@@ -56,7 +56,15 @@ Se déplacer dans le répertoire projet
 Installer les dépendances
 `composer install`
 
-Utiliser la base de données
+Mettre à jour les dépendances du Bundle de symfony
+`composer update symfony/console --with-dependencies`
+
+Installer le bundle Doctrine dev
+`composer require --dev doctrine/doctrine-fixtures-bundle --prefer-source`
+
+Initialiser la base de données
+`php bin/console doctrine:migrations:migrate`
+
 -----------------------------
 
 **Pour utiliser la base de données depuis le container php :**  
@@ -121,12 +129,20 @@ La stack comporte 3 containers :
 Règles de nommage du dépôt
 --------------------------
 Préfixer le message de commit par l'un des identificateur suivant
-- << conflict >> : Conflit de merge
-- << feature >>  : ajout d'une fonctionnalité
-- << modify >>   : Modification d'une méthode ou d'un fonctionnement spécifique
-- << merge >>    : merge d'une branche avec une autre
-- << fix >>      : Résolution d'un défaut/d'un bug ou d'un dysfonctionnement spécifique
+- << CONFLICT >> : Les fichiers poussé sous ce commit ne sont pas fonctionnels (feature en cours non achevé mais nécéssitant d'être poussé en cas de force majeur).
+- << FEATURE >>  : Ajout d'une fonctionnalité qui tourne sans erreur (ne provoque aucun conflit).
+- << MODIFY >>   : Modification d'une méthode ou d'un fonctionnement spécifique.
+- << MERGE >>    : Merge d'une branche avec une autre.
+- << FIX >>      : Résolution d'un défaut/d'un bug ou d'un dysfonctionnement spécifique.
+- << MAINTAIN >> : Nettoyage du code, reprise des syntaxe & normes de nommage/typage, ou application d'un correctif d'optimisation sur une feature déjà fonctionnelle mais fragile.
+- << COMMENTS >> : Documentation et ajout de commentaires de précision sur le code source.
 
-Commentaire explicité clairement EN FRANÇAIS.
+Commentaire explicité clairement EN FRANÇAIS, avec titrage de chaque grande modifications venant avec le commit.
+**Exemple : `<<MAINTAIN>> : Reprise de la feature X avec une méthode Y pour une robustesse de saisie supplémentaire`**
 
 Comportement de push.
+
+- Sur branche personnelle : aucune vérification tierce, vous êtes responsable de ce que vous y faite
+- Sur branche commune (dev): merge request uniquement lorsque votre branche est FONCTIONNELLE (=tourne et ne freine pas le développement des autres), peut être refusé par l'équipe en cas contraire.
+- Sur branche principale (main) : Merge request uniquement depuis la branche commune (dev), nécéssite impérativement l'accord oral ou écrit de tout les membres de l'équipe avant le push. 
+**Note : (L'Équipe se réserve le droit de vous refuser l'accès au dépot dans le cas ou vous ne respecter pas ces règles.)**

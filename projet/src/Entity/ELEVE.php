@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ELEVERepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ELEVERepository::class)]
@@ -15,49 +13,36 @@ class ELEVE
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $date_naissance = null;
+    #[ORM\Column(type: 'date', nullable: true)]
+    private ?\DateTimeInterface $date_naissance = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $adresse_principale = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $age = null;
 
-    #[ORM\Column]
-    private ?int $cycle_musical = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $tel_domicile = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $tel_portable = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $tel_professionnel = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $eleve_majeur = null;
-
-    /**
-     * @var Collection<int, INSCRIPTION>
-     */
-    #[ORM\OneToMany(targetEntity: INSCRIPTION::class, mappedBy: 'id_eleve')]
-    private Collection $id_inscription;
-
-    public function __construct()
-    {
-        $this->id_inscription = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -69,10 +54,9 @@ class ELEVE
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(?string $nom): static
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -81,22 +65,20 @@ class ELEVE
         return $this->prenom;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setPrenom(?string $prenom): static
     {
         $this->prenom = $prenom;
-
         return $this;
     }
 
-    public function getDateNaissance(): ?string
+    public function getDateNaissance(): ?\DateTimeInterface
     {
         return $this->date_naissance;
     }
 
-    public function setDateNaissance(string $date_naissance): static
+    public function setDateNaissance(?\DateTimeInterface $date_naissance): static
     {
         $this->date_naissance = $date_naissance;
-
         return $this;
     }
 
@@ -105,10 +87,9 @@ class ELEVE
         return $this->adresse_principale;
     }
 
-    public function setAdressePrincipale(string $adresse_principale): static
+    public function setAdressePrincipale(?string $adresse_principale): static
     {
         $this->adresse_principale = $adresse_principale;
-
         return $this;
     }
 
@@ -117,34 +98,21 @@ class ELEVE
         return $this->age;
     }
 
-    public function setAge(int $age): static
+    public function setAge(?int $age): static
     {
         $this->age = $age;
-
         return $this;
     }
 
-    public function getCycleMusical(): ?int
-    {
-        return $this->cycle_musical;
-    }
-
-    public function setCycleMusical(int $cycle_musical): static
-    {
-        $this->cycle_musical = $cycle_musical;
-
-        return $this;
-    }
 
     public function getTelDomicile(): ?string
     {
         return $this->tel_domicile;
     }
 
-    public function setTelDomicile(string $tel_domicile): static
+    public function setTelDomicile(?string $tel_domicile): static
     {
         $this->tel_domicile = $tel_domicile;
-
         return $this;
     }
 
@@ -153,10 +121,9 @@ class ELEVE
         return $this->tel_portable;
     }
 
-    public function setTelPortable(string $tel_portable): static
+    public function setTelPortable(?string $tel_portable): static
     {
         $this->tel_portable = $tel_portable;
-
         return $this;
     }
 
@@ -165,10 +132,9 @@ class ELEVE
         return $this->tel_professionnel;
     }
 
-    public function setTelProfessionnel(string $tel_professionnel): static
+    public function setTelProfessionnel(?string $tel_professionnel): static
     {
         $this->tel_professionnel = $tel_professionnel;
-
         return $this;
     }
 
@@ -177,10 +143,9 @@ class ELEVE
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(?string $email): static
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -189,40 +154,9 @@ class ELEVE
         return $this->eleve_majeur;
     }
 
-    public function setEleveMajeur(bool $eleve_majeur): static
+    public function setEleveMajeur(?bool $eleve_majeur): static
     {
         $this->eleve_majeur = $eleve_majeur;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, INSCRIPTION>
-     */
-    public function getIdInscription(): Collection
-    {
-        return $this->id_inscription;
-    }
-
-    public function addIdInscription(INSCRIPTION $idInscription): static
-    {
-        if (!$this->id_inscription->contains($idInscription)) {
-            $this->id_inscription->add($idInscription);
-            $idInscription->setIdEleve($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdInscription(INSCRIPTION $idInscription): static
-    {
-        if ($this->id_inscription->removeElement($idInscription)) {
-            // set the owning side to null (unless already changed)
-            if ($idInscription->getIdEleve() === $this) {
-                $idInscription->setIdEleve(null);
-            }
-        }
-
         return $this;
     }
 }

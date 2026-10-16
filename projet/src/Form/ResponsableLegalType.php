@@ -12,11 +12,11 @@ class ResponsableLegalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('tel_portable')
-            ->add('tel_professionnel')
-            ->add('email')
+            ->add('nom',null,['required' => false])
+            ->add('prenom',null,['required' => false])
+            ->add('tel_portable',null,['required' => false])
+            ->add('tel_professionnel',null,['required' => false])
+            ->add('email',null,['required' => false])
         ;
     }
 

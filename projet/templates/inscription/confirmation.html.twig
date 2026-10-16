@@ -1,0 +1,129 @@
+{# templates/inscription/confirmation.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Confirmée</title>
+    <style>
+        /* Styles CSS Standards de secours, ultra-modernes et sans dépendances */
+        :root {
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-500: #64748b;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --emerald-50: #ecfdf5;
+            --emerald-500: #10b981;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--slate-50);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .card {
+            max-w: 400px;
+            width: 100%;
+            margin: 16px;
+            background-color: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(241, 245, 249, 1), 0 8px 10px -6px rgba(241, 245, 249, 1);
+            border: 1px solid var(--slate-100);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .icon-container {
+            margin: 0 auto 24px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+            background-color: var(--emerald-50);
+        }
+
+        .icon-container svg {
+            /* Fixe la taille de la coche pour éviter qu'elle soit géante */
+            height: 40px;
+            width: 40px;
+            color: var(--emerald-500);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--slate-800);
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 14px;
+            color: var(--slate-500);
+            line-height: 1.6;
+            margin: 0 0 32px 0;
+        }
+
+        .divider {
+            border-top: 1px solid var(--slate-100);
+            margin: 24px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            items-center: center;
+            justify-content: center;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: var(--slate-900);
+            border-radius: 12px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--slate-800);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        
+        <!-- Icône de validation de taille contrôlée -->
+        <div class="icon-container">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+
+        <!-- Titre et descriptif calibrés -->
+        <h1>Inscription validée !</h1>
+        <p>
+            Félicitations, le dossier a été enregistré avec succès dans notre système. Un email récapitulatif contenant toutes les informations pratiques vous sera envoyé par Mme LEBEC.
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- Bouton de retour -->
+        <a href="{{ path('accueil') }}" class="btn">
+            Retour à l'Accueil
+        </a>
+
+    </div>
+
+</body>
+</html>

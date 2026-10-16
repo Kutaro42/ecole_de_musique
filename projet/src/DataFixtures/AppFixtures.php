@@ -1,33 +1,16 @@
 <?php
 
 namespace App\DataFixtures;
-<<<<<<< projet/src/DataFixtures/AppFixtures.php
-use App\Entity\DISCIPLINE;
 
+use App\Entity\DISCIPLINE;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
-   public function load(ObjectManager $manager): void
+
+    public function load(ObjectManager $manager): void
     {
-    
-
-        // Liste de vos disciplines avec leur nom et description (attention à ne pas dépasser 50 caractères pour la description)
-        $disciplinesData = [
-            [
-                'nom' => 'Éveil Musical',
-                'description' => 'Cours de découverte pour les plus jeunes.'
-            ],
-            [
-                'nom' => 'Cours instrumental',
-                'description' => 'Cours d\'instruments et formation musicale.'
-            ],
-            [
-                'nom' => 'Pratique collective',
-                'description' => 'Initiation à l\'orchestre et improvisation.'
-            ],
-
 
         $discipline1 = new Discipline();
         $discipline1->setNom("Éveil musical");
@@ -47,12 +30,8 @@ class AppFixtures extends Fixture
         $manager->persist($discipline3);
         ];
 
-        foreach ($disciplinesData as $data) {
-            $discipline = new DISCIPLINE();
-            $discipline->setNom($data['nom']);
-            $discipline->setDescription($data['description']);
-            
-            $manager->persist($discipline);
-        }
+
+        $manager->flush();
+
     }
 }

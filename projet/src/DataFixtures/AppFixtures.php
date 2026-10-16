@@ -28,7 +28,7 @@ class AppFixtures extends Fixture
         $discipline3->setNom("Pratique collective");
         $discipline3->setDescription("Chorale, ensembles de musique de chambre ou groupes de musiques actuelles. Partagez votre passion et développez votre écoute au sein d\'un groupe.");
         $manager->persist($discipline3);
-        ];
+        
 
 
         $manager->flush();

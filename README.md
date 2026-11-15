@@ -1,49 +1,57 @@
 Stack de développement PHP
 ==========================
 
-Prérequis
----------
+# École de musique – Stack Symfony / Docker
 
-Sur votre machine Mac, Windows ou Linux :
+Site web d'une **école de musique fictive**, développé en **équipe de 5 personnes** dans le cadre du BUT Informatique (IUT de La Rochelle), en suivant des **méthodes de conception et de développement agiles**.
 
-- Docker 29.7 au moins, ou un moyen de faire tourner des containers et une stack docker compose
-  (Installer Docker Desktop 4.87 satisfait ce pré-requis - vous chercherez plus tard comment faire autrement)
-- Un éditeur de texte ou un IDE
-- L'accès à un terminal
+Le projet repose sur une stack **Symfony** conteneurisée avec **Docker**, pour que chaque membre de l'équipe travaille dans le même environnement.
 
-De manière optionnelle, mais fortement recommandée :
+## Technologies
 
-- Une [clé SSH](https://forge.iut-larochelle.fr/help/ssh/index#generate-an-ssh-key-pair) active sur votre machine
-  (si c'est une machine perso) et [ajoutée dans votre compte gitlab](https://forge.iut-larochelle.fr/help/ssh/index#add-an-ssh-key-to-your-gitlab-account) :  
-  elle vous permettra de ne pas taper votre mot de passe en permanence.
-- PHPStorm  
-  _Votre email étudiant vous permet de bénéficier d'une licence complète de 12 mois pour tous les produits JetBrains_ : https://www.jetbrains.com/shop/eform/students  
-  ... Mais vous pouvez bien sûr utiliser l'IDE de votre choix (... tant que c'est PHPStorm ;-) 
+- **Symfony** (PHP) – application web
+- **Docker / Docker Compose** – environnement de développement reproductible
+- **MariaDB** – base de données
+- **phpMyAdmin** – administration de la base en développement
+- **Git / GitLab** – travail collaboratif
 
-Démarrage rapide
-----------------
+## Ma contribution
 
-On récupère une archive zip du contenu de la branche main, à l'adresse  
-https://forge.iut-larochelle.fr/qual3/stack-php/-/archive/main/stack-php-main.zip  
-et on se positionne dans le dossier en question.
+- **Conception de l'architecture de la base de données** (modélisation des données de l'école).
+- **Implémentation du formulaire d'inscription** des nouveaux élèves.
+- **Définition d'une grande partie des règles de nommage des commits**, pour garder un historique lisible en équipe.
 
-Dans un terminal :  
-`docker compose up --build -d`
+## Lancer le projet
 
-Une fois les containers démarrés, vous pouvez vérifier que php fonctionne :  
-`docker exec -it iut-php php -v`
+Prérequis : Docker et Docker Compose installés.
 
-Pour exécuter un script php contenu dans un fichier (par exemple index.php) :  
-`docker exec -it iut-php php index.php`
+```bash
+git clone https://github.com/Kutaro42/ecole_de_musique.git
+cd ecole_de_musique
+docker compose up -d --build
+```
 
-Un shell interactif php est disponible en faisant :  
-`docker exec -it iut-php php -a`  
-(plus d'infos ici : https://www.php.net/manual/fr/features.commandline.interactive.php)
+Les dépendances PHP sont installées au démarrage du conteneur `php` (`composer install`).
 
-Attention, **si vous êtes sous Linux**, regardez dans le fichier .env.dist
+| Service | Adresse |
+|---|---|
+| Site web | http://localhost:8888 |
+| phpMyAdmin | http://localhost:8886 |
+| Base de données (MariaDB) | `localhost:3307` |
 
-**Si vous installez une 2e fois la stack sur une machine**, vous allez avoir des conflits de noms de containers :
-la variable CONTAINER_PREFIX dans .env.dist, à enregistrer en .env est là pour ça.
+> Pour arrêter les conteneurs : `docker compose down`
+
+## Configuration et sécurité
+
+Les identifiants présents dans `.env` et `docker-compose.yml` sont des **valeurs de développement** destinées à l'environnement Docker local. Ils ne protègent aucune donnée réelle.
+
+Pour un déploiement en dehors d'une machine personnelle, il faudrait notamment :
+- définir de vrais secrets (`APP_SECRET`, mots de passe de la base) via des variables d'environnement ;
+- ne plus publier les ports de la base et de phpMyAdmin sur toutes les interfaces (par exemple `127.0.0.1:3307:3306`).
+
+## Contexte
+
+Projet universitaire réalisé en équipe. Les données et le sujet sont fictifs.
 
 Installation des dépendance php et lancement de la BD
 ----------------
